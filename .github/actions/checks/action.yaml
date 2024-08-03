@@ -1,0 +1,25 @@
+name: 'Hello World'
+description: 'Greet someone'
+runs:
+  using: 'composite'
+  steps:
+    - uses: tony84727/changed-file-filter@v0.2.3
+      id: filter
+      with:
+        filters: |
+          hanaq:
+            - '.github/**/*'
+            - 'hanaq/**/*'
+            - '.ruff.toml'
+            - 'pyrightconfig.json'
+          paqarina:
+            - '.github/**/*'
+            - 'paqarina/**/*'
+    - name: Paqarina steps
+      if: steps.filter.outputs.paqarina == 'true'
+      shell: bash
+      run: echo 'paqarina is changed'
+    - name: Hanaq steps
+      if: steps.filter.outputs.hanaq == 'true'
+      shell: bash
+      run: echo 'hanaq is changed'
