@@ -23,3 +23,11 @@ runs:
       if: steps.filter.outputs.hanaq == 'true'
       shell: bash
       run: echo 'hanaq is changed'
+    - name: Count Paqarina changed
+      if: steps.filter.outputs.paqarina == 'true'
+      shell: bash
+      run: echo ${{ steps.filter.outputs.paqarina_files }}|wc -l
+    - name: Count Hanaq changed
+      shell: bash
+      if: steps.filter.outputs.hanaq == 'true'
+      run: echo ${{ steps.filter.outputs.hanaq_files }}|wc -l
