@@ -26,8 +26,8 @@ runs:
     - name: Count Paqarina changed
       if: steps.filter.outputs.paqarina == 'true'
       shell: bash
-      run: echo ${{ steps.filter.outputs.paqarina_files }}|wc -l
+      run: echo ${{ steps.filter.outputs.paqarina_files }}|wc -w
     - name: Count Hanaq changed
       shell: bash
       if: steps.filter.outputs.hanaq == 'true'
-      run: echo ${{ steps.filter.outputs.hanaq_files }}|wc -l
+      run: echo ${{ steps.filter.outputs.hanaq_files }}|wc -w
