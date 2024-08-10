@@ -3,7 +3,7 @@ description: 'Greet someone'
 runs:
   using: 'composite'
   steps:
-    - uses: tony84727/changed-file-filter@v0.2.3
+    - uses: tony84727/changed-file-filter@513b2c4fe0f3139985ca2766b42ca772c5c7307a
       id: filter
       with:
         filters: |
